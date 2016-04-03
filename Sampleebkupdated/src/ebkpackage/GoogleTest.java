@@ -14,6 +14,6 @@ public class GoogleTest{
 		System.out.println(b);
 		Thread.sleep(10000);
 		Assert.assertEquals(b, "Google");
-		//System.out.println("hello");
+		System.out.println("hello");
 		dr.quit();
 }}
