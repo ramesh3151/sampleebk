@@ -1,0 +1,171 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>Sampleebk</groupId>
+  <artifactId>Sampleebk</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <resources>
+      <resource>
+        <directory>src</directory>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+      </resource>
+    </resources>
+     <plugins>
+      <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-surefire-plugin</artifactId>
+		<version>2.19.1</version>
+		<configuration>
+		<suiteXmlFiles>
+		<suiteXmlFile>testng.xml</suiteXmlFile>
+		</suiteXmlFiles>
+		<source>1.8</source>
+          <target>1.8</target>
+		</configuration>
+      </plugin>
+       <plugin>
+        <groupId>ch.fortysix</groupId>
+                <artifactId>maven-postman-plugin</artifactId>
+                <version>0.1.6</version>
+                <executions>
+                    <execution>
+                        <id>send_an_mail</id>
+                        <phase>test</phase>
+                        <goals>
+                        	
+                            <goal>send-mail</goal>
+                        </goals>
+                        <inherited>false</inherited>
+                        <configuration>
+                            
+                            <subject>eBK Automation Test Results</subject>
+                            <htmlMessage>
+                            <![CDATA[
+                            <pre>Hi, 
+                            
+Here is the test result on Automation of eBK, 
+                            	
+Please find attachments.
+                            	
+This is automatically generated email. Please Do not reply to this email.
+								
+Have a good day!
+                            </pre>
+                            ]]>
+                            </htmlMessage>
+                            <failonerror>true</failonerror>
+                            <mailhost>smtp.gmail.com</mailhost>
+                            <mailport>465</mailport>
+                          	<mailssl>true</mailssl>
+                            <mailAltConfig>true</mailAltConfig>
+                            <mailuser>ebkautomation@gmail.com</mailuser>
+                            <mailpassword>@welcome45</mailpassword>
+                            <from>ebkautomation@gmail.com</from>
+                            
+                            <receivers>
+                                <receiver>ebkautomation@gmail.com</receiver>
+                            </receivers>
+
+						<fileSets>
+                                <fileSet>
+                                    <directory>C:\Users\ramesh selvam\workspaceandroid\Sampleebk</directory>
+                                    <includes>
+                                        <include>**/target/surefire-reports/emailable-report.html</include>
+                                    </includes>
+                                </fileSet>
+                            </fileSets>
+                            
+                        </configuration>
+                    </execution>
+                </executions>
+                </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+  <dependency>
+	<groupId>org.seleniumhq.selenium</groupId>
+	<artifactId>selenium-java</artifactId>
+	<version>2.53.0</version>
+</dependency>
+  
+  	
+  	<dependency>
+	<groupId>org.seleniumhq.selenium</groupId>
+	<artifactId>selenium-server</artifactId>
+	<version>2.53.0</version>
+</dependency>
+
+  	
+  	<dependency>
+  		<groupId>log4j</groupId>
+  		<artifactId>log4j</artifactId>
+  		<version>1.2.17</version>
+  	</dependency>
+  	<dependency>
+	<groupId>org.uncommons</groupId>
+	<artifactId>reportng</artifactId>
+	<version>1.1.4</version>
+</dependency>
+
+  	<dependency>
+  		<groupId>org.testng</groupId>
+  		<artifactId>testng</artifactId>
+  		<version>6.9.10</version>
+  	</dependency>
+  
+  	<dependency>
+  		<groupId>org.apache.poi</groupId>
+  		<artifactId>poi</artifactId>
+  		<version>3.14</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.apache.maven.surefire</groupId>
+  		<artifactId>surefire-api</artifactId>
+  		<version>2.19</version>
+  	</dependency>
+  	<dependency>
+	<groupId>org.apache.poi</groupId>
+	<artifactId>poi-ooxml</artifactId>
+	<version>3.12</version>
+    </dependency>
+    <dependency>
+	<groupId>org.apache.poi</groupId>
+	<artifactId>poi-excelant</artifactId>
+	<version>3.14</version>
+</dependency><dependency>
+	<groupId>org.apache.poi</groupId>
+	<artifactId>poi-scratchpad</artifactId>
+	<version>3.14</version>
+</dependency>
+<dependency>
+	<groupId>org.apache.poi</groupId>
+	<artifactId>poi-examples</artifactId>
+	<version>3.14</version>
+</dependency>
+
+<dependency>
+	<groupId>com.beust</groupId>
+	<artifactId>jcommander</artifactId>
+	<version>1.48</version>
+</dependency>   
+
+<dependency>
+	<groupId>ch.fortysix</groupId>
+	<artifactId>maven-postman-plugin</artifactId>
+	<version>0.1.6</version>
+</dependency>  
+  	 
+  </dependencies>
+  
+  <developers>
+    <developer>
+      <id>foo</id>
+      <email>http://mailhide.recaptcha.net/d?k=01ebFB9eM2hZL-T96IpUgRmA==&amp;c=AI-pouLFNTr5xMTBVDaj8iKeIFI5dy9Wj5cxSY0Nuhw=</email>
+      
+    </developer>
+    
+  </developers>
+</project>
